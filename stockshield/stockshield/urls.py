@@ -29,10 +29,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Inventory API",
         default_version='v1',
-        #description="Welcome to the world of Jaseci",
-        #terms_of_service="https://www.jaseci.org",
-        #contact=openapi.Contact(email="jason@jaseci.org"),
-        #license=openapi.License(name="Awesome IP"),
+       
     ),
     public=True,
     #permission_classes=(permissions.AllowAny,),
@@ -41,9 +38,9 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     re_path(r'^doc(?P<format>\.json|\.yaml)$',
-            schema_view.without_ui(cache_timeout=0), name='schema-json'),  #<-- Here
+            schema_view.without_ui(cache_timeout=0), name='schema-json'),  
     path('doc/', schema_view.with_ui('swagger', cache_timeout=0),
-         name='schema-swagger-ui'),  #<-- Here
+         name='schema-swagger-ui'),  
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0),name='schema-redoc'), 
     path('admin/', admin.site.urls),
     path('mystockapi/', include('mystockapi.urls')),
