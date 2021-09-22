@@ -1,1 +1,0 @@
-web: gunicorn -pythonpath stockshield.wsgi.prod --log-file -
