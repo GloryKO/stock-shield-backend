@@ -1,1 +1,1 @@
-web: gunicorn -pythonpath stocksheild stockshield.wsgi.prod --log-file -
+web: gunicorn -pythonpath stockshield.wsgi.prod --log-file -
