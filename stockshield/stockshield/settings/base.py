@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mystockapi.herokuapp.com']
+ALLOWED_HOSTS = ['mystockapi.herokuapp.com','localhost']
 
 
 # Application definition
@@ -144,7 +144,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
 
 #import dj_database_url 
 #prod_db  =  dj_database_url.config(conn_max_age=500)
