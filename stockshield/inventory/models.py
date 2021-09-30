@@ -1,14 +1,11 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-from phone_field import PhoneField
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
-class CustomUser(AbstractUser):
-    business_name = models.CharField(max_length=500,null=True, blank=True)
-    phone_number = PhoneField(blank=True,help_text='Contact phone number')
-    
-class Product_Inventory(models.Model):
-    owner = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+class Inventory(models.Model):
+    owner = models.ForeignKey(User,on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
     category =models.CharField(max_length=250)
     cost_price =models.DecimalField(decimal_places=2,max_digits=10)

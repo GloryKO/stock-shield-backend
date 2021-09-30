@@ -37,12 +37,14 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'rest_auth.registration',
     'corsheaders', 
     'phone_field',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
     
     #local apps
-    'mystockapi',
+    'inventory.apps.InventoryConfig',
+    'users.apps.UsersConfig',
 ]
 
 
@@ -58,9 +60,26 @@ REST_FRAMEWORK = {
 
 REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
 
+'''
+REST_AUTH_SERIALIZERS = {
+    'LOGIN_SERIALIZER': 'users.serializers.UserLoginSerializer',
+    'PASSWORD_CHANGE_SERIALIZER': 'users.serializers.UserPasswordChangeSerializer',
+    'PASSWORD_RESET_SERIALIZER': 'users.serializers.UserPasswordResetSerializer',
+    'PASSWORD_RESET_CONFIRM_SERIALIZER': 'users.serializers.UserPasswordResetSerializer',
+    'USER_DETAILS_SERIALIZER': 'users.serializers.UserPasswordResetSerializer',
+
+}
+'''
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'users.serializers.UserRegisterSerializer',
+    
+    #'TOKEN_SERIALIZER': 'path.to.custom.TokenSerializer',
+    
+}
+
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware', # new
@@ -125,7 +144,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-AUTH_USER_MODEL = 'mystockapi.CustomUser'
+AUTH_USER_MODEL = 'users.User'
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Static files (CSS, JavaScript, Images)

@@ -43,10 +43,10 @@ urlpatterns = [
          name='schema-swagger-ui'),  
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0),name='schema-redoc'), 
     path('admin/', admin.site.urls),
-    path('mystockapi/', include('mystockapi.urls')),
-    path('mystockapi-auth/',include('rest_framework.urls')),
-    path('mystockapi/rest-auth/', include('rest_auth.urls')),
-    path('mystockapi/rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('inventory/', include('inventory.urls')),
+    path('stockshield-auth/',include('rest_framework.urls')),
+    path('stockshield/dj-rest-auth/', include('dj_rest_auth.urls')),
+    path('stockshield/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),
     path('docs/', include_docs_urls(title=API_TITLE,description=API_DESCRIPTION)),
     path('swagger-docs/', schema_view)
 

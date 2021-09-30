@@ -8,6 +8,8 @@ DEBUG = True
 
 WSGI_APPLICATION = 'stockshield.wsgi.dev.application'
 
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
